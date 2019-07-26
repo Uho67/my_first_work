@@ -1,0 +1,10 @@
+<?php $arrLinks = $block->getLinks(); ?>
+
+
+<select name="forma" onchange="location = this.value">
+    <?php foreach ($arrLinks as $link): ?>
+    <option value=<?php echo $link[0]?>><?php echo $link[1]?></option>
+    <?php endforeach ?>
+</select>
+
+

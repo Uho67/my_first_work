@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+                id="Mymodule_Test::all"
+                title="000000000000"
+                translate="title"
+                module="Mymodule_Test"
+                sortOrder="20"
+                dependsOnModule="Mymodule_Test"
+                resource="Mymodule_Test::all"
+        />
+
+        <add
+                id="Mymodule_Test::grid"
+                title="Links grid"
+                translate="title"
+                module="Mymodule_Test"
+                sortOrder="10"
+                parent="Mymodule_Test::all"
+                action="mymodule_test/link/listing"
+                resource="Mymodule_Test::grid"
+        />
+        <add
+                id="Mymodule_Test::bunch_grid"
+                title="Bunch grid"
+                translate="title"
+                module="Mymodule_Test"
+                sortOrder="10"
+                parent="Mymodule_Test::all"
+                action="mymodule_test/bunch/listing"
+                resource="Mymodule_Test::bunch_grid"
+        />
+
+    </menu>
+</config>
