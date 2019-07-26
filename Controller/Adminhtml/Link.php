@@ -19,9 +19,14 @@ use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\View\Result\Page;
 
+use Magento\Framework\App\ResourceConnection;
+
+
 use Mymodule\Test\Api\Links\LinkInterface;
 use Mymodule\Test\Api\LinkRepositoryInterface;
 use Mymodule\Test\Model\LinkFactory;
+
+use Mymodule\Test\Api\BunchRepositoryInterface as BrunchRepository;
 
 abstract class Link extends Action
 {
@@ -30,6 +35,10 @@ abstract class Link extends Action
     const PAGE_TITLE            = 'Mymodule_Test_Link';
     const BREADCRUMB_TITLE      = 'Link';
     const QUERY_PARAM_ID        = 'id';
+
+    protected $brunchRepository;
+
+    protected $_resource;
 
     /** @var Registry  */
     protected $registry;
@@ -54,6 +63,8 @@ abstract class Link extends Action
 
 
     public function __construct(
+        BrunchRepository $bunchRepository,
+        ResourceConnection $resource,
         Context $context,
         Registry $registry,
         PageFactory $pageFactory,
@@ -61,6 +72,8 @@ abstract class Link extends Action
         LinkFactory $factory,
         LoggerInterface $logger
     ){
+        $this->brunchRepository = $bunchRepository;
+        $this->_resource      = $resource;
         $this->registry       = $registry;
         $this->pageFactory    = $pageFactory;
         $this->repository     = $linkRepository;

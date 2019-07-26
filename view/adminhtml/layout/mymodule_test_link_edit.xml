@@ -7,5 +7,6 @@
         <referenceContainer name="content">
             <uiComponent name="link_form"/>
         </referenceContainer>
+
     </body>
 </page>
