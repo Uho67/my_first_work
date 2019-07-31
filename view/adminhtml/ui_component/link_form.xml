@@ -108,15 +108,30 @@
                 </item>
             </argument>
         </field>
+        <field name="pages">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">pages</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">pages</item>
+                    <item name="require" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">pages</item>
+                </item>
+            </argument>
+        </field>
 
     </fieldset>
+    <fieldset>
     <insertListing>
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="autoRender" xsi:type="string">true</item>
-                <item name="ns" xsi:type="string">cms_page_listing</item>
+                <item name="ns" xsi:type="string">mymodule_test_page_index</item>
             </item>
         </argument>
     </insertListing>
+    </fieldset>
 </form>
 

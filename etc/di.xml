@@ -23,6 +23,14 @@
                 type="Magento\Framework\Api\SearchResults" />
 
 
+    <virtualType name="Magento\Cms\Model\ResourceModel\Page\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cms_page</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Cms\Model\ResourceModel\Page</argument>
+        </arguments>
+    </virtualType>
+
+
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>

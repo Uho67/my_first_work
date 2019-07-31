@@ -60,7 +60,7 @@ class LinkProvider  extends AbstractDataProvider
         /** @var $status LinkInterface */
         foreach ($items as $link) {
             $this->loadedData[$link->getId()] = $link->getData();
-            $this->loadedData[$link->getId()]['page_id'] = $pages_id;
+            $this->loadedData[$link->getId()]['pages'] = '1,4,5,6';
         }
         return $this->loadedData;
     }

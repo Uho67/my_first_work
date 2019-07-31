@@ -112,7 +112,7 @@
             </childDefaults>
         </settings>
 
-        <selectionsColumn name="ids">
+        <selectionsColumn component="Mymodule_Test/js/grid/columns/multiselect" name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">link_id</item>
