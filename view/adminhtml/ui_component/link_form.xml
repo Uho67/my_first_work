@@ -123,15 +123,20 @@
         </field>
 
     </fieldset>
-    <fieldset>
-    <insertListing>
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="autoRender" xsi:type="string">true</item>
-                <item name="ns" xsi:type="string">mymodule_test_page_index</item>
-            </item>
-        </argument>
-    </insertListing>
+
+    <fieldset name="assign_products" sortOrder="40">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Products</label>
+            <additionalClasses>
+                <class name="product-video-grid">true</class>
+            </additionalClasses>
+        </settings>
+        <container name="assign_products_container" sortOrder="160">
+            <htmlContent name="html_content">
+                <block name="gallery" class="Mymodule\Test\Block\Adminhtml\Page"/>
+            </htmlContent>
+        </container>
     </fieldset>
 </form>
 

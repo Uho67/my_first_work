@@ -1,62 +1,15 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <update handle="styles"/>
-    <body>
-        <referenceContainer name="content">
-            <block class="Mymodule\Test\Block\Adminhtml\Page" name="mymodule_page_grid">
-                <block class="Magento\Backend\Block\Widget\Grid" name="mymodule_page_grid.grid" as="grid">
-                    <arguments>
-                        <argument name="id" xsi:type="string">page_id</argument>
-                        <argument name="dataSource" xsi:type="object">Magento\Cms\Model\ResourceModel\Page\Collection</argument>
-                        <argument name="default_sort" xsi:type="string">id</argument>
-                        <argument name="default_dir" xsi:type="string">ASC</argument>
-                        <argument name="save_parameters_in_session" xsi:type="string">1</argument>
-                    </arguments>
-                    <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="mymodule_test.page.massaction" as="grid.massaction">
-                        <arguments>
-                            <argument name="massaction_id_field" xsi:type="string">page_id</argument>
-                            <argument name="form_field_name" xsi:type="string">ids</argument>
-                            <argument name="use_select_all" xsi:type="string">1</argument>
-                            <argument name="options" xsi:type="array">
-                                <item name="disable" xsi:type="array">
-
-                                </item>
-                            </argument>
-                        </arguments>
-                    </block>
-                    <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="mymodule_page_grid.grid.columnSet" as="grid.columnSet">
-
-                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="page_id">
-                            <arguments>
-                                <argument name="header" xsi:type="string" translate="true">ID</argument>
-                                <argument name="index" xsi:type="string">page_id</argument>
-                                <argument name="type" xsi:type="string">text</argument>
-                                <argument name="column_css_class" xsi:type="string">col-id</argument>
-                                <argument name="header_css_class" xsi:type="string">col-id</argument>
-                            </arguments>
-                        </block>
-
-                        <block class="Magento\Backend\Block\Widget\Grid\Column" as='title'>
-                            <arguments>
-                                <argument name="header" xsi:type="string" translate="true">Title</argument>
-                                <argument name="index" xsi:type="string">title</argument>
-                                <argument name="type" xsi:type="string">text</argument>
-                                <argument name="column_css_class" xsi:type="string">col-id</argument>
-                                <argument name="header_css_class" xsi:type="string">col-id</argument>
-                            </arguments>
-                        </block>
-                        <block class="Magento\Backend\Block\Widget\Grid\Column" as="identifier">
-                            <arguments>
-                                <argument name="header" xsi:type="string" translate="true">Identifier</argument>
-                                <argument name="index" xsi:type="string">identifier</argument>
-                                <argument name="type" xsi:type="string">text</argument>
-                                <argument name="column_css_class" xsi:type="string">col-id</argument>
-                                <argument name="header_css_class" xsi:type="string">col-id</argument>
-                            </arguments>
-                        </block>
-                    </block>
-                </block>
-            </block>
-        </referenceContainer>
-    </body>
-</page>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Mymodule\Test\Block\Adminhtml\Page\Grid" name="Mymodule\Test\Block\Adminhtml\Page\Grid"/>
+        <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="upsell_grid_serializer">
+            <arguments>
+                <argument name="input_names" xsi:type="string">position</argument>
+                <argument name="grid_block" xsi:type="string">Mymodule\Test\Block\Adminhtml\Page\Grid</argument>
+                <argument name="callback" xsi:type="string">_getSelectedProducts</argument>
+                <argument name="input_element_name" xsi:type="string">pages[id]</argument>
+                <argument name="reload_param_name" xsi:type="string">pages_id</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>
