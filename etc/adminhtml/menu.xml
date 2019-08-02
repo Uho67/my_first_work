@@ -24,15 +24,24 @@
                 resource="Mymodule_Test::grid"
         />
         <add
-                id="Mymodule_Test::bunch_grid"
+                id="Mymodule_Test::page_grid"
                 title="My page grid"
                 translate="title"
                 module="Mymodule_Test"
                 sortOrder="10"
                 parent="Mymodule_Test::all"
                 action="mymodule_test/page"
+                resource="Mymodule_Test::page_grid"
+        />
+        <add
+                id="Mymodule_Test::bunch_grid"
+                title="My bunch grid"
+                translate="title"
+                module="Mymodule_Test"
+                sortOrder="10"
+                parent="Mymodule_Test::all"
+                action="mymodule_test/bunch/listing"
                 resource="Mymodule_Test::bunch_grid"
         />
-
     </menu>
 </config>

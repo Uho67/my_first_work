@@ -134,7 +134,7 @@
         </settings>
         <container name="assign_products_container" sortOrder="160">
             <htmlContent name="html_content">
-                <block name="gallery" class="Mymodule\Test\Block\Adminhtml\Page"/>
+                <block name="gallery" class="Mymodule\Test\Block\Adminhtml\Page" template="Mymodule_Test::mytemplate.phtml" />
             </htmlContent>
         </container>
     </fieldset>

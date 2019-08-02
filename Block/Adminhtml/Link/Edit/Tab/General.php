@@ -8,17 +8,21 @@
 
 namespace Mymodule\Test\Block\Adminhtml\link\Edit\Tab;
 
+
 use Mymodule\Test\Block\Adminhtml\Link\Edit\Tab\AbstractTab;
+use Magento\Config\Model\Config\Source\Yesno;
 
 use Mymodule\Test\Api\Links\LinkInterface;
 
 class General extends AbstractTab
 {
+
     const TAB_LABEL     = 'General';
     const TAB_TITLE     = 'General';
     /** {@inheritdoc} */
     protected function _prepareForm()
     {
+        $yesno = $this->yesNoFactory->create()->toOptionArray();
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('link');
         $form->setFieldNameSuffix('link');
@@ -53,15 +57,26 @@ class General extends AbstractTab
         );
         $fieldSet->addField(
             LinkInterface::STATUS_FIELD,
-            'editor',
+            'select',
             [
                 'name'      => LinkInterface::STATUS_FIELD,
                 'label'     => __('Status'),
                 'required'  => true,
+                'values' => $yesno
+            ]
+        );
+        $fieldSet->addField(
+            'pages',
+            'hidden',
+            [
+                'name'      => 'pages',
+                'label'     => __('Pages'),
+                'required'  => true
             ]
         );
 
         $data = $this->model->getData();
+        $data['pages'] = '1,2,3';
         $form->setValues($data);
         $this->setForm($form);
         return parent::_prepareForm();

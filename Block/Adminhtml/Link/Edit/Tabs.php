@@ -38,12 +38,18 @@ class Tabs extends WidgetTabs
                 'active' => true
             ]
         );
-        $this->addTab('form_section1', array(
-            'label'     => __('Page'),
-            'title'     => __('Page'),
-            'url'       => $this->getUrl('*/page/index', array('_current' => true)),
-            'class'     => 'ajax',
-        ));
+        $this->addTab(
+            'pages_section',
+            [
+                'label' => __('Pages'),
+                'title' => __('Pages'),
+                'content' => $this->getLayout()->createBlock(
+                    \Mymodule\Test\Block\Adminhtml\Page\Grid::class,
+                    'user.roles.grid'
+                )->toHtml()
+            ]
+        );
+
         return parent::_beforeToHtml();
     }
 }

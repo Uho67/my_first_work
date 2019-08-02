@@ -7,8 +7,8 @@
                 <argument name="input_names" xsi:type="string">position</argument>
                 <argument name="grid_block" xsi:type="string">Mymodule\Test\Block\Adminhtml\Page\Grid</argument>
                 <argument name="callback" xsi:type="string">_getSelectedProducts</argument>
-                <argument name="input_element_name" xsi:type="string">pages[id]</argument>
-                <argument name="reload_param_name" xsi:type="string">pages_id</argument>
+                <argument name="input_element_name" xsi:type="string">pages</argument>
+                <argument name="reload_param_name" xsi:type="string">page_id</argument>
             </arguments>
         </block>
     </container>

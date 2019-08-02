@@ -14,12 +14,16 @@ use Magento\Framework\Registry;
 use Magento\Framework\Data\FormFactory;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Config\Model\Config\Source\Enabledisable;
+use Magento\Config\Model\Config\Source\YesnoFactory;
 
 
 use Mymodule\Test\Api\Links\LinkInterface;
 
 abstract class AbstractTab extends Generic implements TabInterface
 {
+
+    protected $yesNoFactory;
+
     const TAB_LABEL     = 'Link info';
     const TAB_TITLE     = 'Link Info';
     const CAN_SHOW_TAB  = true;
@@ -31,6 +35,7 @@ abstract class AbstractTab extends Generic implements TabInterface
     /** @var  Enabledisable */
     protected $sourceModel;
     /**
+     * @param YesnoFactory  $yesnoFactory
      * @param Context       $context
      * @param Registry      $registry
      * @param FormFactory   $formFactory
@@ -39,6 +44,7 @@ abstract class AbstractTab extends Generic implements TabInterface
      * @param array         $data
      */
     public function __construct(
+        YesnoFactory $yesNoFactory,
         Context $context,
         Registry $registry,
         FormFactory $formFactory,
@@ -46,6 +52,7 @@ abstract class AbstractTab extends Generic implements TabInterface
         Enabledisable $enableDisable,
         array $data = []
     ) {
+        $this->yesNoFactory  = $yesNoFactory;
         $this->wysiwygConfig = $wysiwygConfig;
         $this->model         = $registry->registry(LinkInterface::REGISTRY_KEY);
         $this->sourceModel   = $enableDisable;

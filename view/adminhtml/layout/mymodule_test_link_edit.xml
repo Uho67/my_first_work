@@ -1,10 +1,4 @@
 <?xml version="1.0"?>
-<!--
-/**
- * @author Pavel Usachev <webcodekeeper@hotmail.com>
- * @copyright Copyright (c) 2017, Pavel Usachev
- */
--->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       layout="admin-2columns-left"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -18,6 +12,9 @@
                     class="Mymodule\Test\Block\Adminhtml\Link\Edit"
                     name="mymodule_test_link.edit"
             />
+        </referenceContainer>
+        <referenceContainer name="js">
+            <block class="Magento\Backend\Block\Template" name="adminhtml.link.page.grid.js" template="Mymodule_Test::link/page_grid_js.phtml"/>
         </referenceContainer>
     </body>
 </page>

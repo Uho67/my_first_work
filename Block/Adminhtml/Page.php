@@ -31,19 +31,6 @@ class Page extends \Magento\Backend\Block\Widget\Grid\Container
 //        return parent::_prepareLayout();
 //    }
 
-    protected function _prepareLayout()
-    {
-
-        $this->addTab(
-            'productgrid',
-            [
-                'label' => __('Select Product'),
-                'url' => $this->getUrl('modulename/*/actionname', ['_current' => true]),
-                'class' => 'ajax',
-
-            ]
-        );
-    }
 
 
 

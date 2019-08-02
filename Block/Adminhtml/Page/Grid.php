@@ -36,7 +36,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         parent::_construct();
         $this->setId('page_grid');
         $this->setDefaultSort('page_id');
-        $this->setUseAjax(true);
+        $this->setUseAjax(false);
 
     }
 
@@ -74,7 +74,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'type' => 'checkbox',
                 'html_name' => 'page_id',
                 'required' => true,
-                'values' => $this->_getSelectedProducts(),
+                'values' => false,
                 'align' => 'center',
                 'index' => 'page_id',
                 'header_css_class' => 'col-multyselect',

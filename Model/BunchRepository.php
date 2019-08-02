@@ -120,6 +120,10 @@ class BunchRepository  implements \Mymodule\Test\Api\BunchRepositoryInterface
         }
 
     }
+    public function deleteByLinkId($id){
+//        ???
+
+    }
 
 
 }
