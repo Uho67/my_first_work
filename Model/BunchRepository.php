@@ -120,10 +120,16 @@ class BunchRepository  implements \Mymodule\Test\Api\BunchRepositoryInterface
         }
 
     }
-    public function deleteByLinkId($id){
-//        ???
+    public function deleteByLinkId($linkId)
+    {
+        $collection = $this->collectionFactory->create()->addFieldToFilter('link_id', $linkId);
+        try {
+            foreach ($collection as $item) {
+                $this->deleteById($item->getId());
+            }
+        } catch (\Exception $exception) {
+            throw new \Magento\Framework\Exception\CouldNotDeleteException(__($exception->getMessage()));
 
+        }
     }
-
-
 }

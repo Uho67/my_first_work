@@ -1,28 +1,25 @@
 define(["Magento_Ui/js/grid/columns/multiselect",'uiRegistry','jquery'],function (multiselect,register,$) {
+    var pages = register.get('link_form.link_form.general.pages');
 
-
-    var pages = register.get("link_grid_listing.link_grid_listing.listing_top.columns_controls");
-
-
-  // console.log(pages)
-
-register.get(function (a,b) {
-    console.log(a,b);
-})
 
     return multiselect.extend({
+        onSelectedChange: function (selected) {
+            this.updateExcluded(selected)
+                .countSelected()
+                .updateState();
+            $('input[name="pages"]').val(selected).change();
+        },
+        onRowsChange: function () {
+            var newSelections;
 
-
-        updateExcluded: function (selected) {
-            var excluded = this.excluded(),
-                fromPage = _.difference(this.getIds(), selected);
-
-            excluded = _.union(excluded, fromPage);
-            excluded = _.difference(excluded, selected);
-
-            this.excluded(excluded);
-            // $('input[name="pages"]').val(selected).change();
-            return this;
+            if (this.excludeMode()) {
+                newSelections = _.union(this.getIds(true), this.selected());
+                this.selected(newSelections);
+            }else{
+                if (pages) {
+                    this.selected( pages.initialValue.split(','));
+                }
+            }
         }
 
     })

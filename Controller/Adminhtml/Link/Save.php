@@ -46,7 +46,7 @@ class Save extends BaseLink
                 $model = $this->repository->save($model);
                 if(strlen($pages)>0) {
                     $arrPage = explode(",", $pages);
-                    $id = $model->getId();
+                    $this->brunchRepository-> deleteByLinkId($model->getId());
                     $this->brunchRepository->massSave($model->getId(),  $arrPage);
                 }
                 $this->messageManager->addSuccessMessage(__('Link has been saved.'));

@@ -20,18 +20,4 @@ class Page extends \Magento\Backend\Block\Widget\Grid\Container
         $this->_headerText = __('Page');
         parent::_construct();
     }
-
-//    protected function _prepareLayout(){
-//        if(!$this->getRequest()->getParam('noser')){
-//            $serialzeAr = array('data'=>array('grid_block'=>$this,'callback'=>'getSelectedProducts',
-//                'input_element_name'=>'selected_products','reload_param_name'=>'selected_products'));
-//            $serializer = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Grid\Serializer','serializer',$serialzeAr);
-//            $this->getParentBlock()->insert($serializer,$this->getNameInLayout());
-//        }
-//        return parent::_prepareLayout();
-//    }
-
-
-
-
 }

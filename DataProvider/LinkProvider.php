@@ -44,11 +44,7 @@ class LinkProvider  extends AbstractDataProvider
     public function getData()
     {
 
-        $bunchCollection = $this->bunchCollectinFactory->create()->getData();
-        $pages_id = array();
-        foreach ($bunchCollection as $item){
-            $pages_id[]=$item['page_id'];
-        }
+        $bunchCollection = $this->bunchCollectinFactory->create();
 
         if (isset($this->loadedData)) {
             return $this->loadedData;
@@ -60,7 +56,13 @@ class LinkProvider  extends AbstractDataProvider
         /** @var $status LinkInterface */
         foreach ($items as $link) {
             $this->loadedData[$link->getId()] = $link->getData();
-            $this->loadedData[$link->getId()]['pages'] = '1,4,5,6';
+            $bunchCollection = $bunchCollection->addFieldToFilter('link_id', $link->getId());
+            $arrPage = array();
+            foreach($bunchCollection as $bunch){
+                $arrPage[] = $bunch->getPageId();
+
+            }
+            $this->loadedData[$link->getId()]['pages'] = implode(',',$arrPage);
         }
         return $this->loadedData;
     }
