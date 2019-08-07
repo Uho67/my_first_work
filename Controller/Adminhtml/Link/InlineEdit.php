@@ -20,6 +20,7 @@ use Mymodule\Test\Api\Links\LinkInterface;
  */
 class InlineEdit extends \Magento\Backend\App\Action
 {
+    const ACL_RESOURCE          = 'Mymodule_Test::inline';
 
     /**
      * @var \Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor
@@ -53,6 +54,15 @@ class InlineEdit extends \Magento\Backend\App\Action
         $this->linkRepository = $linkRepository;
         $this->jsonFactory = $jsonFactory;
     }
+    /** {@inheritdoc} */
+    protected function _isAllowed()
+    {
+        $result = parent::_isAllowed();
+        $result = $result && $this->_authorization->isAllowed(static::ACL_RESOURCE);
+
+        return $result;
+    }
+
 
     /**
      * @return \Magento\Framework\Controller\ResultInterface

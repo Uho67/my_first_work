@@ -15,7 +15,8 @@ use Magento\Framework\Exception\NoSuchEntityException ;
 
 class Edit extends BaseLink
 {
-
+    const ACL_RESOURCE          = 'Mymodule_Test::edit';
+    const MENU_ITEM             = 'Mymodule_Test::edit';
     const PAGE_TITLE        = 'Edit Link';
     const BREADCRUMB_TITLE  = 'Edit Link';
     /** {@inheritdoc} */

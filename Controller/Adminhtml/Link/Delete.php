@@ -12,7 +12,8 @@ use Mymodule\Test\Controller\Adminhtml\Link as BaseLink;
 
 class Delete extends Baselink
 {
-
+    const ACL_RESOURCE          = 'Mymodule_Test::delete';
+    const MENU_ITEM             = 'Mymodule_Test::delete';
     /** {@inheritdoc} */
     public function execute()
     {

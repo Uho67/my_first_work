@@ -20,8 +20,8 @@
                 module="Mymodule_Test"
                 sortOrder="10"
                 parent="Mymodule_Test::all"
-                action="mymodule_test/link/listing"
-                resource="Mymodule_Test::grid"
+                action="mymodule_test/link/index"
+                resource="Mymodule_Test::all"
         />
     </menu>
 </config>

@@ -121,7 +121,6 @@
         <column name="link_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="editor" xsi:type="string">text</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">ID</item>
                 </item>
@@ -130,7 +129,6 @@
         <column name="link_text">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="editor" xsi:type="string">text</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Name</item>
                 </item>
@@ -139,7 +137,6 @@
         <column name="body">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="editor" xsi:type="string">text</item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Body</item>
                 </item>

@@ -13,7 +13,8 @@ use Mymodule\Test\Controller\Adminhtml\Link as BaseLink;
  */
 class MassDelete extends BaseLink
 {
-
+    const ACL_RESOURCE          = 'Mymodule_Test::delete';
+    const MENU_ITEM             = 'Mymodule_Test::delete';
     public function execute()
     {
         $ids = $this->getRequest()->getParam('selected');

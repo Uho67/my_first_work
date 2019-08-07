@@ -10,10 +10,10 @@ namespace Mymodule\Test\Controller\Adminhtml\Link;
 
 use Mymodule\Test\Controller\Adminhtml\Link;
 
-class Listing extends Link
+class Index extends Link
 {
-    const ACL_RESOURCE      = 'Mymodule_Test::links';
-    const MENU_ITEM         = 'Mymodule_Test::links';
+    const ACL_RESOURCE      = 'Mymodule_Test::all';
+    const MENU_ITEM         = 'Mymodule_Test::all';
     const PAGE_TITLE        = 'Link Grid';
     const BREADCRUMB_TITLE  = 'Link Grid';
 }
