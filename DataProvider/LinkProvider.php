@@ -11,14 +11,12 @@ namespace Mymodule\Test\DataProvider;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
 use Mymodule\Test\Api\Links\LinkInterface;
-use Mymodule\Test\Api\Bunch\BunchInterface;
 use Mymodule\Test\Model\ResourceModel\Link\CollectionFactory;
-use Mymodule\Test\Model\ResourceModel\Bunch\CollectionFactory as BunchCollection;
+use Mymodule\Test\Api\LinkRepositoryInterface;
 
 
 class LinkProvider  extends AbstractDataProvider
 {
-    protected $bunchCollectinFactory;
     /**
      * @param string            $name
      * @param string            $primaryFieldName
@@ -28,23 +26,22 @@ class LinkProvider  extends AbstractDataProvider
      * @param array             $meta
      * @param array             $data
      */
+    protected $linkRepository;
     public function __construct(
+        LinkRepositoryInterface $linkRepository,
         $name,
         $primaryFieldName,
         $requestFieldName,
         CollectionFactory $collectionFactory,
-        BunchCollection $bunchCollection,
         array $meta = [],
         array $data = []
     ) {
-        $this->bunchCollectinFactory = $bunchCollection;
+        $this->linkRepository = $linkRepository;
         $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
     public function getData()
     {
-
-        $bunchCollection = $this->bunchCollectinFactory->create();
 
         if (isset($this->loadedData)) {
             return $this->loadedData;
@@ -55,14 +52,8 @@ class LinkProvider  extends AbstractDataProvider
         }
         /** @var $status LinkInterface */
         foreach ($items as $link) {
-            $this->loadedData[$link->getId()] = $link->getData();
-            $bunchCollection = $bunchCollection->addFieldToFilter('link_id', $link->getId());
-            $arrPage = array();
-            foreach($bunchCollection as $bunch){
-                $arrPage[] = $bunch->getPageId();
+            $this->loadedData[$link->getId()] = $this->linkRepository->getById($link->getId())->getData();
 
-            }
-            $this->loadedData[$link->getId()]['pages'] = implode(',',$arrPage);
         }
         return $this->loadedData;
     }

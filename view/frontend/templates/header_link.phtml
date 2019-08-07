@@ -1,9 +1,9 @@
-<?php $arrLinks = $block->getLinks(); ?>
+<?php $collection = $block->getLinks(); ?>
 
-<div>MYYYYYY</div>
+<div>Links </div>
 <ul>
-    <?php foreach ($arrLinks as $link): ?>
-    <li><a href="<?php echo $link[0]?>"><?php echo $link[1]?></a></li>
+    <?php foreach ($collection as $item): ?>
+    <li><a href="<?php echo $item->getBody()?>"><?php echo $item->getText()?></a></li>
     <?php endforeach ?>
 </ul>
 

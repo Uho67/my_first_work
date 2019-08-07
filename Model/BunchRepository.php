@@ -101,35 +101,4 @@ class BunchRepository  implements \Mymodule\Test\Api\BunchRepositoryInterface
         }
         return $this;
     }
-
-    public function massSave($linkId,array $pages)
-    {
-        $transactionalModel = $this->transactionFactory->create();
-
-        foreach ($pages as $page){
-            $bunch = $this->bunchFactory->create();
-            $bunch->setPageId($page);
-            $bunch->setLinkId($linkId);
-            $transactionalModel->addObject($bunch);
-        }
-
-        try {
-            $transactionalModel->save();
-        }  catch (\Exception $exception) {
-            throw new \Magento\Framework\Exception\CouldNotDeleteException(__($exception->getMessage()));
-        }
-
-    }
-    public function deleteByLinkId($linkId)
-    {
-        $collection = $this->collectionFactory->create()->addFieldToFilter('link_id', $linkId);
-        try {
-            foreach ($collection as $item) {
-                $this->deleteById($item->getId());
-            }
-        } catch (\Exception $exception) {
-            throw new \Magento\Framework\Exception\CouldNotDeleteException(__($exception->getMessage()));
-
-        }
-    }
 }

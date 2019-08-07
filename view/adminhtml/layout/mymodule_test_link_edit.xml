@@ -5,18 +5,5 @@
         <referenceContainer name="content">
             <uiComponent name="link_form"/>
         </referenceContainer>
-        <!--<referenceContainer name="left">-->
-            <!--<block class="Mymodule\Test\Block\Adminhtml\Link\Edit\Tabs"-->
-                   <!--name="mymodule_link.edit.tabs"/>-->
-        <!--</referenceContainer>-->
-        <!--<referenceContainer name="content">-->
-            <!--<block-->
-                    <!--class="Mymodule\Test\Block\Adminhtml\Link\Edit"-->
-                    <!--name="mymodule_test_link.edit"-->
-            <!--/>-->
-        <!--</referenceContainer>-->
-        <!--<referenceContainer name="js">-->
-            <!--<block class="Magento\Backend\Block\Template" name="adminhtml.link.page.grid.js" template="Mymodule_Test::link/page_grid_js.phtml"/>-->
-        <!--</referenceContainer>-->
     </body>
 </page>

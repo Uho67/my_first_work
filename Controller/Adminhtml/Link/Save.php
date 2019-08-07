@@ -36,19 +36,13 @@ class Save extends BaseLink
             }
 
 
-            $pages = $formData['pages'];
-            unset($formData['pages']);
             $model->setData($formData);
 
 
 
             try {
                 $model = $this->repository->save($model);
-                if(strlen($pages)>0) {
-                    $arrPage = explode(",", $pages);
-                    $this->brunchRepository-> deleteByLinkId($model->getId());
-                    $this->brunchRepository->massSave($model->getId(),  $arrPage);
-                }
+
                 $this->messageManager->addSuccessMessage(__('Link has been saved.'));
                 if ($this->getRequest()->getParam('back')) {
                     return $this->_redirect('*/*/edit', ['id' => $model->getId(), '_current' => true]);

@@ -14,8 +14,10 @@ interface BunchRepositoryInterface
     public function getById($id);
 
     public function deleteById($id);
+
     public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+
     public function save(\Mymodule\Test\Api\Bunch\BunchInterface $bunch);
+
     public function delete(\Mymodule\Test\Api\Bunch\BunchInterface $bunch);
-    public function massSave($linkId,array $pages);
 }

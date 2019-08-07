@@ -10,7 +10,7 @@ use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Cms\Controller\Adminhtml\Page\PostDataProcessor;
 
 
-use Mymodule\Test\Api\BunchRepositoryInterface as LinkRepository;
+use Mymodule\Test\Api\LinkRepositoryInterface as LinkRepository;
 use Mymodule\Test\Api\Links\LinkInterface;
 
 
