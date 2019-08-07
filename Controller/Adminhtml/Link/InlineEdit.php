@@ -27,7 +27,7 @@ class InlineEdit extends \Magento\Backend\App\Action
     protected $dataProcessor;
 
     /**
-     * @var \Mymodule\Test\Api\BunchRepositoryInterface
+     * @var LinkRepository
      */
     protected $linkRepository;
 

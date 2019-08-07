@@ -26,7 +26,6 @@ use Mymodule\Test\Api\Links\LinkInterface;
 use Mymodule\Test\Api\LinkRepositoryInterface;
 use Mymodule\Test\Model\LinkFactory;
 
-use Mymodule\Test\Api\BunchRepositoryInterface as BrunchRepository;
 
 abstract class Link extends Action
 {
@@ -36,7 +35,6 @@ abstract class Link extends Action
     const BREADCRUMB_TITLE      = 'Link';
     const QUERY_PARAM_ID        = 'id';
 
-    protected $brunchRepository;
 
     protected $_resource;
 
@@ -63,7 +61,6 @@ abstract class Link extends Action
 
 
     public function __construct(
-        BrunchRepository $bunchRepository,
         ResourceConnection $resource,
         Context $context,
         Registry $registry,
@@ -72,7 +69,7 @@ abstract class Link extends Action
         LinkFactory $factory,
         LoggerInterface $logger
     ){
-        $this->brunchRepository = $bunchRepository;
+
         $this->_resource      = $resource;
         $this->registry       = $registry;
         $this->pageFactory    = $pageFactory;

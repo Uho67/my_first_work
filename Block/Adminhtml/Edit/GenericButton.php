@@ -11,17 +11,17 @@ namespace Mymodule\Test\Block\Adminhtml\Edit;
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-use Mymodule\Test\Api\BunchRepositoryInterface;
+use Mymodule\Test\Api\LinkRepositoryInterface;
 
 class GenericButton
 {
     /** @var Context */
     protected $context;
-    /** @var BunchRepositoryInterface*/
+    /** @var LinkRepositoryInterface*/
     protected $repository;
     public function __construct(
         Context $context,
-        BunchRepositoryInterface $repository
+        LinkRepositoryInterface $repository
     ) {
         $this->context      = $context;
         $this->repository   = $repository;

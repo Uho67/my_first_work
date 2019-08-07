@@ -12,17 +12,6 @@
     <preference for="Mymodule\Test\Api\Data\LinkSearchResultsInterface"
                 type="Magento\Framework\Api\SearchResults" />
 
-
-    <preference for="Mymodule\Test\Api\Bunch\BunchInterface"
-                type="Mymodule\Test\Model\Bunch" />
-
-    <preference for="Mymodule\Test\Api\BunchRepositoryInterface"
-                type="Mymodule\Test\Model\BunchRepository" />
-
-    <preference for="Mymodule\Test\Api\Data\BunchSearchResultsInterface"
-                type="Magento\Framework\Api\SearchResults" />
-
-
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
