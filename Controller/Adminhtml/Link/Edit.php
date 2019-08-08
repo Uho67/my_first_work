@@ -17,16 +17,20 @@ class Edit extends BaseLink
 {
     const ACL_RESOURCE          = 'Mymodule_Test::edit';
     const MENU_ITEM             = 'Mymodule_Test::edit';
-    const PAGE_TITLE        = 'Edit Link';
-    const BREADCRUMB_TITLE  = 'Edit Link';
+    const PAGE_TITLE            = 'Form Link';
+    const BREADCRUMB_TITLE      = 'Form Link';
     /** {@inheritdoc} */
 
     public function execute()
     {
         $id = $this->getRequest()->getParam(static::QUERY_PARAM_ID);
+        if($id == null){
+           return parent::execute();
+        }
         if (!empty($id)) {
             try {
                 $model = $this->repository->getById($id);
+                $this->registry->register('mymodule_test_current_link', $model);
             } catch (NoSuchEntityException $exception) {
                 $this->logger->error($exception->getMessage());
                 $this->messageManager->addErrorMessage(__('Entity with id %1 not found', $id));

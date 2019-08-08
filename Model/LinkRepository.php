@@ -26,25 +26,24 @@ class LinkRepository implements \Mymodule\Test\Api\LinkRepositoryInterface
     /** @var \Mymodule\Test\Api\Links\LinkSearchResultInterfaceFactory */
     protected $searchResultsFactory;
 
-    protected $scopeConfig;
 
     protected $messageManager;
 
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+
         \Mymodule\Test\Model\ResourceModel\Link $resource,
         \Mymodule\Test\Model\LinkFactory $linksFactory,
         \Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface $collectionProcessor,
         \Mymodule\Test\Model\ResourceModel\Link\CollectionFactory $collectionFactory,
-        \Mymodule\Test\Api\Links\LinkSearchResultInterfaceFactory $statusSearchResultFactory,
+        \Mymodule\Test\Api\Links\LinkSearchResultInterfaceFactory $linkSearchResultFactory,
         \Magento\Framework\App\Action\Context $context
     ) {
-        $this->scopeConfig              = $scopeConfig;
+
         $this->resource                 = $resource;
-        $this->linksFactory            = $linksFactory;
+        $this->linksFactory             = $linksFactory;
         $this->collectionProcessor      = $collectionProcessor;
         $this->collectionFactory        = $collectionFactory;
-        $this->searchResultsFactory     = $statusSearchResultFactory;
+        $this->searchResultsFactory     = $linkSearchResultFactory;
         $this->messageManager           = $context->getMessageManager();
     }
 
@@ -54,7 +53,7 @@ class LinkRepository implements \Mymodule\Test\Api\LinkRepositoryInterface
         $this->resource->load($link, $id);
 
         if (!$link->getId()) {
-            throw new \Magento\Framework\Exception\NoSuchEntityException(__('status with id "%1" does not exist.', $id));
+            throw new \Magento\Framework\Exception\NoSuchEntityException(__('Link with id "%1" does not exist.', $id));
         }
 
         return $link;

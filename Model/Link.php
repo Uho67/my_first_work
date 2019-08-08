@@ -9,18 +9,12 @@
 namespace Mymodule\Test\Model;
 
 
-class Link extends \Magento\Framework\Model\AbstractModel implements \Mymodule\Test\Api\Links\LinkInterface, \Magento\Framework\DataObject\IdentityInterface
+class Link extends \Magento\Framework\Model\AbstractModel implements \Mymodule\Test\Api\Links\LinkInterface
 {
     /** {@inheritdoc} */
     public function _construct()
     {
         $this->_init(\Mymodule\Test\Model\ResourceModel\Link::class);
-    }
-
-    /** {@inheritdoc} */
-    public function getIdentities()
-    {
-        return [sprintf("%s_%s", \Mymodule\Test\Api\Links\LinkInterface::CACHE_TAG, $this->getId())];
     }
 
     public function getText(){

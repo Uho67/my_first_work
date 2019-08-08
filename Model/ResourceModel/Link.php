@@ -58,7 +58,7 @@ class Link extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
 
-    protected function _beforeDelete(\Magento\Framework\Model\AbstractModel $object)
+    protected function _afterDelete(\Magento\Framework\Model\AbstractModel $object)
     {
         $tableName = $this->getTable(BunchInterface::TABLE_NAME);
         $connection = $this->getConnection();

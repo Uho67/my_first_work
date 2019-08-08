@@ -77,10 +77,6 @@ class Collection extends LinkCollection implements SearchResultInterface
         return $this;
     }
 
-    /** {@inheritdoc} */
-    public function getItems()
-    {
-        return $this;
-    }
+
 
 }

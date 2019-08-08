@@ -7,12 +7,6 @@
             <resource id="Magento_Backend::admin">
                     <resource id="Mymodule_Test::all" title="MymoduleTest All" translate="title" sortOrder="30" >
                         <resource
-                                id="Mymodule_Test::create"
-                                title="Link Create"
-                                translate="title"
-                                sortOrder="20"
-                        />
-                        <resource
                                 id="Mymodule_Test::delete"
                                 title="Link Delete"
                                 translate="title"

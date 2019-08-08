@@ -15,14 +15,17 @@ use Mymodule\Test\Api\LinkRepositoryInterface;
 
 class GenericButton
 {
+    protected $_registry ;
     /** @var Context */
     protected $context;
     /** @var LinkRepositoryInterface*/
     protected $repository;
     public function __construct(
+        \Magento\Framework\Registry $registry,
         Context $context,
         LinkRepositoryInterface $repository
     ) {
+        $this->_registry    = $registry;
         $this->context      = $context;
         $this->repository   = $repository;
     }
@@ -34,11 +37,8 @@ class GenericButton
     public function getLinkId()
     {
         try {
-            return $this->repository->getById(
-                $this->context->getRequest()->getParam('id')
-            )->getId();
-        }catch (NoSuchEntityException $e) {
-        }
+           return $this->_registry->registry('mymodule_test_current_link')->getId();
+        }catch (NoSuchEntityException $e){}
         return null;
     }
     /**

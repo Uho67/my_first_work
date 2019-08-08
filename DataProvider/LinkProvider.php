@@ -17,6 +17,9 @@ use Mymodule\Test\Api\LinkRepositoryInterface;
 
 class LinkProvider  extends AbstractDataProvider
 {
+
+
+    protected $_registry;
     /**
      * @param string            $name
      * @param string            $primaryFieldName
@@ -29,6 +32,7 @@ class LinkProvider  extends AbstractDataProvider
     protected $linkRepository;
     public function __construct(
         LinkRepositoryInterface $linkRepository,
+        \Magento\Framework\Registry $registry,
         $name,
         $primaryFieldName,
         $requestFieldName,
@@ -36,26 +40,18 @@ class LinkProvider  extends AbstractDataProvider
         array $meta = [],
         array $data = []
     ) {
+        $this->_registry = $registry;
         $this->linkRepository = $linkRepository;
         $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
     public function getData()
     {
-
-        if (isset($this->loadedData)) {
+        $model = $this->_registry->registry('mymodule_test_current_link');
+        if($model!=null) {
+            $this->loadedData[$model->getId()] = $model->getData();
             return $this->loadedData;
-        }
-        $items = $this->collection->getItems();
-        if (empty($items)) {
-            return [];
-        }
-        /** @var $status LinkInterface */
-        foreach ($items as $link) {
-            $this->loadedData[$link->getId()] = $this->linkRepository->getById($link->getId())->getData();
-
-        }
-        return $this->loadedData;
+        }else return [];
     }
 
 
